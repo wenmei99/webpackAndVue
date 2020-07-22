@@ -4,6 +4,7 @@ const webpack = require('webpack')
 // 简化了html文件的创建
 const HtmlWepackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -49,7 +50,18 @@ module.exports = {
       },
       {
         test:/\.(sa|c|sc)ss$/,
-        use:['vue-style-loader','css-loader','postcss-loader','sass-loader',]
+        // use:['vue-style-loader','css-loader','postcss-loader','sass-loader',]
+        use:[
+          {
+            loader:process.env.NODE_ENV === 'development' ?'vue-style-loader':MiniCssExtractPlugin.loader,
+            options:{
+              hmr: process.env.NODE_ENV === 'development',
+            }
+          },
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ]
       }
     ]
   },

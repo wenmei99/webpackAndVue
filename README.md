@@ -79,6 +79,30 @@ DllPlugin ： 查分bundles,大大的提供打包效率
 
 九、使用stylus预处理器
 首先先下载stylus  和stylus-loader依赖
+然后在module.rules中进行相应的配置
+{
+  test:/\.styl(us)$/,
+  use:['vue-style-loader',css-loader','stylus-loader','postcss-loader']
+}
+
+接下来只要你在.vue 的style文件上加上lang='stylus',就可以使用stylusl来写css了
+
+十、抽取css到单文件
+使用mini-css-extract-plugin
+这个插件提取css到一个特殊的文件中，它创建css文件对于每个含有css 的js文件，相当于分包css
+首先安装：
+npm i mini-css-extract-plugin  -D
+
+然后在配置文件的头部引入：
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+new MiniCssExtractPlugin()
+
+
+然后当你需要抽取css的时候（比如生产环境），就把原来的用到vue-style-loader替换为MiniCssExtractPlugin.loader,其他不动
+
+
+
+
 
 
 

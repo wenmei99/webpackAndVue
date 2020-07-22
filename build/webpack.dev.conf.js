@@ -11,6 +11,7 @@ const merge = require('webpack-merge');
 const basicConfig = require('./webpack.base.conf')
 const config = require('./config/index')
 // const AutoDllPlugin = require('autodll-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 console.log(merge);
 
@@ -33,5 +34,6 @@ module.exports = merge(basicConfig,{
     //     vendor:['vue']    // entry 是入口，vendor是指定的名称，数组里的内容就是要打包的第三方库的名名称，
     //   }
     // })
+    new MiniCssExtractPlugin()
   ]
 })
