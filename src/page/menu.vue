@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div>
+    这是menu页面，从首页跳转过来
   </div>
 </template>
 
