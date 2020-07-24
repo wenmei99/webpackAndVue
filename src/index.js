@@ -2,16 +2,22 @@
 import Vue from 'vue'
 import App from './app'
 import router from './router'
-// import DrColor from  '@/directive/firstDirective'
+import alldires from '@/directive/alldirective'
+import allFilters from '@/filter/firstfilter'
+import $checkButton from '@/plugin/testPlugin'
+import $checkPlugin from '@/plugin/secondPlugin'
 
+Object.keys(alldires).forEach((dir)=>Vue.directive(dir,alldires[dir]))
+Object.keys(allFilters).forEach((fil)=>Vue.filter(fil,allFilters[fil]))
 
+Vue.use($checkButton)
+Vue.use($checkPlugin)
 
 new Vue({
   el:'#app',
   router,
   template:'<App/>',
   components:{ App },
-  // directives:{DrColor}
 })
 
 if(module.hot){

@@ -19,8 +19,9 @@ module.exports = merge(basicConfig,{
   mode:'development',
   devtool:config.dev.devtool,
   devServer:{
-    contentBase: './dist',
-    hot:true
+    hot:true,
+    // contentBase: './static',
+    publicPath:'/'
   },
   plugins:[
     new webpack.NamedModulesPlugin(),    // 开启热更新使用该插件会显示相对路径，一般是使用在开发环境
