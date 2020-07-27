@@ -3,6 +3,7 @@ import Vue from 'vue'
 import getters from './getter'
 import mutations  from './mutation'
 import actions from './action'
+import logger from './logger'
 
 Vue.use(Vuex)
 
@@ -17,7 +18,8 @@ const store = new Vuex.Store({
   },
   getters,
   mutations,
-  actions
+  actions,
+  plugins:[logger]
 })
 
 
