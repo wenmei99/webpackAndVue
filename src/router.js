@@ -10,7 +10,9 @@ const homePage = () => import('@/page/home');
 
 const Empty = () => import('@/layout/empty.vue');
 
-const Menu = ()=>import('@/page/menu')
+const Menu = ()=>import('@/page/menu');
+
+const StudyVue = ()=>import('@/page/studyVue')
 
 
 export default new VueRouter({
@@ -30,6 +32,11 @@ export default new VueRouter({
       path:'/menu',
       component:Menu,
       name:'Menu'
+    },
+    {
+      path:'/studyVue',
+      component:StudyVue,
+      name:'StudyVue'
     },
   ]
 })

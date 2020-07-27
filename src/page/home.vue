@@ -16,6 +16,7 @@
     <div @click="testMutations">测试mutation</div>
     <button @click="testAction">测试action</button>
     <div v-if="personMsg">{{personMsg.name}}</div>
+    <button @click="$router.push({name:'StudyVue'})">go</button>
   </div>
 </template>
 
